@@ -44,7 +44,7 @@ num_char = len(input("What is your name? "))
 num_char_str = str(num_char) #cast integer to string and print
 print("Your name has " + num_char_str + " characters")
 
-#print ("---Practice 2.1 ----------------------------------------------")
+print ("---Practice 2.1 ----------------------------------------------")
 #enter a 2 digit number and calculate the sum of the digits
 #eg. input: 28 print 10
 str_inp = input("Type a 2 digit number: ")
@@ -65,7 +65,7 @@ print(sum_of_digits)
 print(3*3+3/3-3)  # output is a floating point number #ans is 7.0
 print(3*(3+3)/3-3)  # output is a floating point number #ans is 3.0
 
-#print ("---Practice 2.2 ----------------------------------------------")
+print ("---Practice 2.2 ----------------------------------------------")
 #BMI calculator based on the weight and height
 #bmi is weight(kg)/height in m2
 height = input("enter your height in m: ")
@@ -94,7 +94,7 @@ isWinning = True
 print(f"your score is {score} with height {height} winning {isWinning}")
 
 
-#print ("---Practice 2.3 ----------------------------------------------")
+print ("---Practice 2.3 ----------------------------------------------")
 #calculate the number of days weeks and months
 current_age = int (float( input("What is your current age ") )) # need to convert string to a flaot to int for years like 12.5
 
@@ -110,8 +110,12 @@ print("Welcome to the tip Calculator")
 tot_bill = float(input("What was the total bill? "))
 tip_percentage = float(input("What percentage tip would you like to give? 10, 12, or 15? "))
 num_of_people = int(input("How many people to split the bill? "))
-result = round ( (((tot_bill + (tip_percentage/100) * tot_bill))/num_of_people) , 2)
-print(f"Each person should pay: ${result}")
+#result = round(((tot_bill + (tip_percentage/100) * tot_bill))/num_of_people) , 2)
+result = ((tot_bill + (tip_percentage/100) * tot_bill))/num_of_people
+#if we don't wanna use the round, we can use the format function
+
+final_amount = "{:.2f}".format(result)
+print(f"Each person should pay: ${final_amount}")
 
 print ("---End of practice--------------------------------------------\n")
 
