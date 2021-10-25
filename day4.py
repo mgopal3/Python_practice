@@ -75,3 +75,59 @@ bill_payer = random.choice(names)
 print(f"{bill_payer} pays the bill today")
 print ("---End of practice---------------------------------------\n")   
 
+#find a length of the list
+list = [10, 20, 30, 40, 60]
+print (f"length of list is: {len(list)}")
+
+#remember to always access elements of the list as 0 to len-1
+
+#nested lists: lists within lists
+fruits = ["apple", "orange", "peach", "pear"]
+vegetables = ["potato", "tomato", "onion", "ladysfinger", "Beans"]
+food = [fruits, vegetables]
+print(f"length of fruits: {len(fruits)}")
+print(f"length of vegetables: {len(vegetables)}")
+print(f"length of food: {len(food)}")
+
+#prints the 2 lists
+print(food)
+
+#prints list of fruits
+print(food[0])
+
+#prints list of vegetables
+print(food[1])
+
+#print individual elements of the list
+print(food[0][1])
+
+
+
+#Treasure Map Exercise
+#given a 3x3 matrix, get user input to place the treasure at a particular location
+print ("---Practice 4.3----------------------------------------------")
+row1 = [":)", ":(", ":p"]
+row2 = [":o", ";p", ":D"]
+row3 = [":$", ":#", ":@"]
+print(f"{row1}\n{row2}\n{row3}")
+
+matrix = [row1, row2, row3]
+#input is in the form of row and coloumn
+
+#inp = int(input("Where do you want to put the treasure? "))
+#col = int(inp % 10)
+#row = int(inp/10)
+
+#also do the following to make it easier
+inp = input("Where do you want to put the treasure? ")
+col = int(inp[0])
+row = int(inp[1])
+if(col > 3 or row > 3):
+	print("Incorrect input, No change will be made") 
+else:
+	matrix[row-1][col-1] = "X"
+
+print(f"{row1}\n{row2}\n{row3}")
+print ("---End of practice---------------------------------------\n")   
+
+
