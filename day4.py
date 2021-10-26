@@ -128,6 +128,61 @@ else:
 	matrix[row-1][col-1] = "X"
 
 print(f"{row1}\n{row2}\n{row3}")
+
 print ("---End of practice---------------------------------------\n")   
 
 
+#Rock Paper Scissors
+#play against computer
+print ("---Practice 4.3----------------------------------------------")
+rock = '''
+    ______
+---'  _____)
+     (______)
+     (_______)
+     (_______)
+---.__(_____)
+'''
+
+paper = '''
+    _______
+---'  _____)___
+     (_________)_
+     (___________)
+     (_________)
+---.__(______)
+'''    
+
+scissors = '''
+    _______
+---'  _____)___
+     (_________)_
+     (___________)
+     (_____)
+---.__(___)
+'''      
+#0 for rock, 1 for paper, 2 scissors
+options = [rock, paper, scissors]
+inp_p = int(input("What do you choose? Type 0 for Rock, 1 for Paper and 2 for Scissors   "))
+inp_comp = random.randint(0,3)
+
+print(f"{options[inp_p]}\n\n")
+
+print(f"Computer Chooses: \n\n{options[inp_comp]}\n\n")
+
+#we've to now decide who wins
+#creating a 2x2 matrix that'll tell us who won. Keeping 0,1,2 vs 0,1,2
+#3 is draw
+#			rock(0) paper(1) scissors(2)
+#rock(0)	  3       1          0	
+#paper(1)     1       3          2
+#scissors(2)  0       2          3
+winner_grid = [[3,1,0],[1,3,2],[0,2,3]]
+if(winner_grid[inp_p][inp_comp] == inp_p):
+	print("Congratulations! You Win!")
+elif (winner_grid[inp_p][inp_comp] == inp_comp):
+	print("You Lose!")
+else:
+	print("Draw!")
+
+print ("---End of practice---------------------------------------\n")  
