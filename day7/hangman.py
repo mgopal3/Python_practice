@@ -14,7 +14,7 @@ print(logo)
 #Testing code
 print(f'Pssst, the solution is {chosen_word}.')
 
-#Create blanks
+#Create blanksgit 
 display = []
 for _ in range(word_length):
     display += "_"
@@ -22,14 +22,15 @@ for _ in range(word_length):
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
     #Check guessed letter
+    if guess in display:
+    	print (f"You guessed {letter}. You already guessed that. Pick another")
+    	continue
+    	
     for position in range(word_length):
         letter = chosen_word[position]
         #check if letter is valid. Also check if letter was previously guessed
         if letter == guess:
-        	if letter in display:
-        		print (f"You guessed {letter}. You already guessed that. Pick another")
-        	else:
-        		display[position] = letter
+        	display[position] = letter
 
     #Check if user is wrong.
     if guess not in chosen_word:
