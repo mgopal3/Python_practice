@@ -32,8 +32,17 @@ card_list = []
 for card in cards_dictionary:
 	card_list.append(card)
 
+
+def draw_a_card(current_card_list, number_of_cards=1):
+	while number_of_cards > 0:
+		number_of_cards -= 1
+		current_card_list.append(random.choice(card_list))
+		
+	return current_card_list
+		
 #modifying it to produce a sum close to 21 considering both A as 1 and 11
 def sum_of_cards(cards):
+	#TODO: Haven't treated every A in the list differently
 	sum_a_1 = 0
 	sum_a_11 = 0
 	for card in cards:
@@ -69,19 +78,12 @@ def game_of_black_jack():
 	player_total = 0
 	computer_total = 0	
 	
-#	print(card_list)		
-#	for card in card_list:
-#		print (f"{cards_dictionary[card]} ")
-		
 	player_cards = []
 	computer_cards = []
 
  	#pick 2 cards for the player and the computer
-	player_cards += random.choice(card_list)
-	player_cards += random.choice(card_list)
-
-	computer_cards+= random.choice(card_list)
-	computer_cards+= random.choice(card_list)
+	player_cards = draw_a_card(player_cards, 2)
+	computer_cards = draw_a_card(computer_cards, 2)
 
 	#Display the initial cards
 	print(f"Your cards : [{player_cards[0]}, {player_cards[1]}]")
@@ -90,20 +92,18 @@ def game_of_black_jack():
 	player_wants_another_card = input("Type 'y' to get another card, type 'n' to pass: ").lower()
 
 	if player_wants_another_card == 'y':
-		player_cards += random.choice(card_list)
+		player_cards = draw_a_card(player_cards, 1)
 	
 	player_total = sum_of_cards(player_cards)
 		
 	if computer_total < 17:
-		computer_cards+= random.choice(card_list)
+		computer_cards = draw_a_card(computer_cards, 1)
 	
 	computer_total = sum_of_cards(computer_cards)
 		
 
 	print(f"Your final hand: {player_cards}")
 	print(f"Computer's final hand: {computer_cards}")
-
-
 
 	if calculate_direct_loss(player_total):
 		print("You Lose")
